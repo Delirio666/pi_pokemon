@@ -1,0 +1,32 @@
+.headerContainer {
+  height: 80px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* background-color: #f05945; */
+  background-color: #04293a;
+  border-bottom: 10px solid black;
+}
+
+.searchBar {
+  width: 550px;
+  height: 25px;
+}
+
+.logo {
+  height: 30px;
+  width: 30px;
+  margin-right: 10px;
+}
+
+.logoText {
+  height: 50px;
+  width: 140px;
+  margin-right: 20px;
+}
+
+.searchBarSection {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

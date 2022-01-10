@@ -2,12 +2,23 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
+import Pokemons from './pages/Pokemons'
+import Types from './pages/Types'
 import reportWebVitals from './reportWebVitals';
+import {BrowserRouter as Router, Routes,Route} from 'react-router-dom'
+import {Provider} from 'react-redux'
+import store from './redux/store'
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+  <Provider store={store}>
+      <Router>
+        <Routes>
+          <Route exact path="/" element={<App/>} />
+          <Route exact path="/pokemons" element={<Pokemons/>} />
+          <Route exact path="/types" element={<Types/>} />
+        </Routes>
+      </Router>
+  </Provider>,
   document.getElementById('root')
 );
 

@@ -1,0 +1,21 @@
+.body {
+  background-color: #f05945;
+}
+
+.Container {
+  display: flex;
+  flex-direction: column;
+}
+
+.buttons {
+  height: 50px;
+  display: flex;
+  flex-direction: row;
+  border: 5px solid;
+  justify-content: space-around;
+}
+
+.pokemons {
+  display: flex;
+  justify-content: space-around;
+}

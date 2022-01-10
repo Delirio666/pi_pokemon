@@ -5,12 +5,12 @@ const {Pokemon, Type} = require('../../db')
 
 
 
-const getPokemonApi = async () =>{
-    const getPokemonUrl = await axios.get('https://pokeapi.co/api/v2/pokemon')
-    return getPokemonUrl
+const HelperGetPokemonApi = async () =>{
+    const pokemons = await axios.get('https://pokeapi.co/api/v2/pokemon')
+    return pokemons
 }
 
-const getPokemonDB = async () =>{
+const HelperGetPokemonDB = async () =>{
     return await Pokemon.findAll({
         include:{
             model:Type,
@@ -22,9 +22,9 @@ const getPokemonDB = async () =>{
     })
 }
 
-const getAllPokemons = async() =>{
-    const fromApi = await getPokemonApi()
-    const fromDB = await getPokemonDB()
+const HelperGetAllPokemons = async() =>{
+    const fromApi = await HelperGetPokemonApi()
+    const fromDB = await HelperGetPokemonDB()
     
     const pokemonTotal = fromApi.data.results.concat(fromDB)
 
@@ -35,29 +35,67 @@ const getAllPokemons = async() =>{
 
 
 
-router.get('/pokemons', async (req,res)=>{
+async function getAllPokemons(req,res){
     const name = req.query.name
-    const pokemonArray = []
+    //const pokemonArray = []
 
-    const response = await getAllPokemons()
-          response.map(e =>pokemonArray.push(e.name))
-
+    const response = await HelperGetAllPokemons()
           
-          if (name){
+          const result = async() => response.map(e =>{
+              const helperFetch = await axios.get(`${e.url}`)
+              console.log(helperFetch)
+              /* const newPokemon = {
+                  name: e.name,
+                  height:details.data.height,
+                  weight:details.data.weight
+              }
+              console.log(newPokemon)
+              return newPokemon */
+          })
+
+/*           
+            if (name){
               let pokemonName = await pokemonArray.filter(pokemon => pokemon.toLowerCase().includes(name.toLowerCase()))
-              pokemonName.length ? 
-              res.status(200).send(pokemonName):
-              res.status(404).send(`No existe el Pokemon: ${name} `)
+              pokemonName.length ? res.status(200).send(pokemonName):res.status(404).send(`No existe el Pokemon: ${name} `)
             } else {
                 res.status(200).send(pokemonArray)
-            } 
-})
+            }  */
+}
 
-router.get('/pokemons/:idPokemon', async (req,res)=>{
-    const response = await getPokemonApi()
-    response.data.results.map(e => console.log(e.name))
+async function pokemonById(req,res){
+    
+    // const fromApi = await HelperGetPokemonApi()
+    // res.send(fromApi.data.results[0].url)
+    // fromApi.data.results.map(e => {
+    //     console.log(e.url)
+    // })
 
-    const fetchUrl = async() => await response.map(e => axios.get(e.url))
-})
 
-module.exports = router;
+    const pokemonDetails = await HelperGetAllPokemons()
+    
+    Object.keys(pokemonDetails.data).map(e=>{
+        console.log(e.abilities)
+    })
+    
+}
+
+
+async function pokemonTypes(req,res){
+    const typesUrl = await axios.get('https://pokeapi.co/api/v2/type')
+    const types = typesUrl.data.results
+    
+    const PokemonTypes = types.map(e => e.name)
+
+    PokemonTypes.forEach(e =>{
+        if(e){
+            Type.findOrCreate({
+                where: {name:e}
+            })
+        }
+    })
+    
+    const pokemons = await Type.findAll()
+    res.status(200).json(pokemons)
+}
+
+module.exports = {getAllPokemons, pokemonById, pokemonTypes}

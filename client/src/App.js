@@ -1,9 +1,10 @@
 import './App.css';
+import pokemonImage from './pokemonFriends.png'
 
-function App() {
+function App(props) {
   return (
     <div className="App">
-      <h1>Henry Pokemon</h1>
+      <img src={pokemonImage} alt='pokemon friends' width={500} alt='pokemon friends'/>
     </div>
   );
 }

@@ -1,0 +1,37 @@
+.container {
+  background-color: rgba(0, 0, 0, 0.3);
+  width: 220px;
+  height: 250px;
+  border-radius: 15px;
+  margin: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-shadow: -1em 0 0.3em rgba(53, 30, 30, 0.1);
+}
+
+.container:hover {
+  background-color: rgba(0, 0, 0, 0.5);
+  box-shadow: -0.5em 0 0.3em rgba(53, 30, 30, 0.2);
+  transition: all 0.1s linear 0s;
+}
+
+.pokemonPic {
+  height: 130px;
+  width: 170px;
+  padding-top: 10px;
+  margin-bottom: 15px;
+}
+
+.pokemonInfo {
+  width: 100%;
+  margin: 0px;
+  padding-top: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.3);
+}
