@@ -1,0 +1,108 @@
+.formContainer {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.form {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+  color: white;
+  width: 100%;
+}
+
+h3 {
+  margin-top: 3px;
+  color: white;
+}
+
+.label {
+  margin-bottom: 5px;
+  color: white;
+}
+
+.input {
+  margin-right: 25px;
+  margin-bottom: 25px;
+  width: 250px;
+}
+
+.error {
+  color: rgb(255, 30, 0);
+  font-size: 14px;
+}
+
+.submitButton {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.FstSection {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.SndSection {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.TrdSection {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.FourSection {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.FifthSection {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.input {
+  background-color: rgba(0, 0, 0, 0);
+  color: black;
+  padding: 3px;
+  border: none;
+  border-bottom: 1px solid white;
+  background-color: none;
+  padding-left: 10px;
+  margin-bottom: 0px;
+  margin-top: 0px;
+}
+
+.input:focus {
+  background-color: rgba(0, 0, 0, 0);
+  padding: 3px;
+  border: none;
+  border-bottom: 1px solid white;
+  background-color: none;
+  margin-bottom: 0px;
+  margin-top: 0px;
+  -webkit-transition: 0.5s;
+  transition: 0.2s;
+}
+
+::placeholder {
+  color: black;
+}
+
+.inputContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}

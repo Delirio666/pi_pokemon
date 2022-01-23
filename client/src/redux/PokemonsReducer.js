@@ -1,10 +1,10 @@
-const initialState = {
-    value:'Pikachu from Store'
-}
+const initialState = {pokemons:[]}
 
 
 export function PokemonsReducer(state = initialState, action){
     switch(action.type){
+        case 'GET_ALL_POKEMONS':
+            return {...state, pokemons:action.payload}
         case 'ORDER_ALF_ASC':
             return {...state,value:'ASC'}
 
@@ -22,7 +22,8 @@ export function PokemonsReducer(state = initialState, action){
 
         case 'CREATED_ON_DB':
             return {...state,value:'CREATED ON DB'}
-
+        case 'SEARCH_BY_NAME':
+            return {...state, value:action.payload}
         default:
             return state
     }

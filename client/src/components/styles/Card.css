@@ -6,15 +6,19 @@
   margin: 30px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-end;
   align-items: center;
   box-shadow: -1em 0 0.3em rgba(53, 30, 30, 0.1);
+  transition: all 0.1s linear 0s;
+  overflow: hidden;
+  cursor: pointer;
 }
 
 .container:hover {
   background-color: rgba(0, 0, 0, 0.5);
   box-shadow: -0.5em 0 0.3em rgba(53, 30, 30, 0.2);
   transition: all 0.1s linear 0s;
+  overflow: hidden;
 }
 
 .pokemonPic {
@@ -26,12 +30,18 @@
 
 .pokemonInfo {
   width: 100%;
+  height: 80px;
   margin: 0px;
   padding-top: 10px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
   color: white;
   background-color: rgba(0, 0, 0, 0.3);
+  transition: all 0.1s linear 0s;
+}
+
+.pokemonInfo:hover {
+  height: 70px;
+  transition: all 0.2s linear 0s;
 }

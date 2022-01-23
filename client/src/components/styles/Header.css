@@ -1,11 +1,10 @@
 .headerContainer {
-  height: 80px;
+  height: 120px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   /* background-color: #f05945; */
   background-color: #04293a;
-  border-bottom: 10px solid black;
 }
 
 .searchBar {
@@ -14,19 +13,30 @@
 }
 
 .logo {
-  height: 30px;
-  width: 30px;
-  margin-right: 10px;
+  height: 40px;
+  width: 40px;
+  margin-right: 20px;
 }
 
 .logoText {
   height: 50px;
   width: 140px;
   margin-right: 20px;
+  cursor: pointer;
 }
 
 .searchBarSection {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.newPokemonButton {
+  margin-right: 20px;
+}
+
+.rightSection {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

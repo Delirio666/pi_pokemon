@@ -19,3 +19,15 @@
   display: flex;
   justify-content: space-around;
 }
+
+.home__row {
+  display: flex;
+  justify-content: space-evenly;
+  z-index: 1;
+  margin-left: 50px;
+  margin-right: 50px;
+}
+
+button {
+  cursor: pointer;
+}
